@@ -38,8 +38,9 @@ chrome.cookies.get({
 //当cookie改变时
 chrome.cookies.onChanged.addListener(function(changeInfo){
 	//changeInfo.removed //-->是否真(删除或改变)
+	
 	//cookie.cookie //改变的信息
-	console.log(changeInfo);
+	//console.log(changeInfo);
 	
 	//if(changeInfo.removed){//cookie被删除
 		// web_Notification('事件:'+changeInfo.cause+' 域:'+

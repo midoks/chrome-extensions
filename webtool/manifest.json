@@ -2,7 +2,7 @@
 	"name" : "站长工具",
 	"version" : "1.0",
 	"manifest_version": 2,
-	"description":"www.cachecha.com",
+	"description":"midoks.cachecha.com",
 
 	"browser_action" : {
 		"default_title" : "站长工具",
@@ -23,7 +23,7 @@
 	"icons": {"16": "img/logo.png", "48": "img/logo.png", "128": "img/logo.png"},
 
 	//omnibox地址栏
-	"omnibox": { "keyword" : "k" },
+	//"omnibox": { "keyword" : "k" },
 
 	//选项页
 	//"options_page": "html/options.html",
@@ -35,12 +35,12 @@
 	
 	//"content_security_policy": "script-src 'self' https://rank.ie.sogou.com; object-src 'self'",
 
-	"content_scripts": [
-	    {
-	     	"matches": ["http://*/*"],
-	     	"js": ["js/test2.js"]
-	    }
- 	],
+	// "content_scripts": [
+	//     {
+	//      	"matches": ["http://*/*"],
+	//      	"js": ["js/test2.js"]
+	//     }
+ // 	],
 
 	//权限管理
 	"permissions":[
