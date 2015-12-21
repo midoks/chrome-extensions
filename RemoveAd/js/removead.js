@@ -19,4 +19,14 @@ chrome.extension.sendRequest({get_remove_ad_state: "?"}, function(response) {
 
 function removeAd(){
     console.log('去除广告!!!');
+    removeAD_url_func();
+}
+
+
+function removeAD_url_func(){
+	console.log(window['removeAD_url']);
+	var x = document.getElementsByTagName("img");
+  	console.log(x);
+
+
 }

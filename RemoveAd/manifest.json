@@ -35,7 +35,7 @@
 	"content_scripts": [
 	    {
 	     	"matches": ["http://*/*"],
-	     	"js": ["js/removead.js"]
+	     	"js": ["js/ad.js", "js/removead.js"]
 	    }
   	],
 

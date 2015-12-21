@@ -10,21 +10,20 @@ function updateIcon(tab){
         iconStatusOn = 1;
     }
 
-
-    if(!tab){
-        return;
-    }
-
-    if( tab.title =="扩展程序"){
-        return;
-    }
-
     if(!iconStatusOn){
         chrome.browserAction.setIcon({path:"../img/logo_off@16.png"});
         //console.log('关闭');
     }else{
         chrome.browserAction.setIcon({path:"../img/logo@16.png"});
         //console.log('开启');
+
+        if(!tab){
+            return;
+        }
+
+        if( tab.title =="扩展程序"){
+            return;
+        }
 
         chrome.tabs.sendRequest(tab.id, {v: iconStatusOn }, function(response) {
         //console.log(response);
