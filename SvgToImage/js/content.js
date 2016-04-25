@@ -9,55 +9,31 @@
 
 var svgList = $("svg");
 
-console.log(svgList);
-console.log(svgList.length);
-
-// console.log("test");
 $(svgList).bind("click", function(){
-
-	console.log("click", this);
 
 
 	var content = $(this).html();
 
-	console.log("pp",$(this).parent().html());
 	
-	
-	var thisAttr = {"version":"","viewbox":""};
+	var thisAttr = {"version":"", "viewBox":this.getAttribute("viewBox")};
 
 	for(i in thisAttr){
-		
 		var at = $(this).attr(i);
-
-		console.log(at);
-
-		thisAttr[i] = at;
-
+		if (thisAttr[i] == "") {
+			thisAttr[i] = at;
+		}
 	}
-	console.log(thisAttr);
 
 	thisAttr["width"] = $(this).width(); 
-	var height = $(this).height();
-
-	console.log("width", thisAttr["width"], "height", height);
-
+	thisAttr["height"] = $(this).height();
+	
 	var attr = "";
 	for(i in thisAttr){
 		attr += " " + i + '="' + thisAttr[i] +'"';
 	}
 
-	console.log(attr);
-
-
-
-	//var svgHtml = '<svg '+ attr +'">' + content + '</svg>';
-	var svgHtml = $(this).parent().removeAttr("role").removeAttr("id").html();
-	console.log(svgHtml);
-
-	// svgHtml = $(svgHtml).css("width", "10");
-	// console.log("svg:",$(svgHtml).html());
-
+	var svgHtml = '<svg '+ attr +' >' + content + '</svg>';
 	var data = svg2canvs(svgHtml);
 
-	saveFile(data, "test.png");
+	saveFile(data, "md-img-"+ new Date().Format("yyyy-MM-dd-hh-mm-ss") +".png");
 });

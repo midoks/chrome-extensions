@@ -1,51 +1,49 @@
 
-console.log("1231232");
 
-// //创建子菜单
-// function create_children_contextMenus(arrays){
-// 	for(i in arrays){
-// 		//console.log(arrays[i]);
-// 		chrome.contextMenus.create(arrays[i], function(){
-// 			if(chrome.extension.lastError)
-// 				console.log(chrome.extension.lastError);
-// 		});
-// 	}
-// }
 
-// //创建右键菜单(父菜单)
-// var id = chrome.contextMenus.create({
-// 	type:"normal",
-// 	title:'生成二维码',
-// 	onclick:function(info, tab){
-// 		//console.log(info, tab);
-// 		var v = info.selectionText;
-// 		if (v == "" || typeof v == "undefined" ) {
-// 			web_Notification('提示', '没有选中值');
-// 		}else{
-// 			chrome.tabs.sendRequest(tab.id, {v: v }, function(response) {
-//   				console.log(response);
-//   				if(response.response == 'ok'){
-//   					console.log('good!!!');
-//   				}
-// 			});
-// 			//console.log(v);
-// 		}
-// 	},
-// 	checked:true,
-// 	enabled:true,
-// 	contexts:["all"]
-// }, function(){
-// 	if(chrome.extension.lastError)
-// 		console.log(chrome.extension.lastError);
-// }); 
+chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
 
-// // //网页web消息传递
-// function web_Notification(title, body){
-// 	var n = new Notification(title, {
-// 		icon: "../img/logo.png",
-// 		body: body
-// 	});
-// 	setInterval(function(){
-// 		n.close();
-// 	}, 2500);
-// }
+
+	 var jsFiles = ['js/jquery.min.js'];
+	console.log(tabId, changeInfo, tab);
+
+
+	chrome.tabs.executeScript(tabId, {
+    	code: 's'
+		}, function(result) {
+			console.log(chrome.runtime.lastError);
+		    if (chrome.runtime.lastError) { // or if (!result)
+		    	console.log(chrome.runtime.lastError);
+		        return;
+		    }
+	});
+
+});
+
+
+chrome.runtime.onMessage.addListener(function (req, sender, sendRes) {
+	 console.log("onMessage.addListener", req, sender, sendRes);
+});
+
+
+function eachTask(tasks, done) {
+  (function next() {
+    var index = arguments.length <= 0 || arguments[0] === undefined ? 0 : arguments[0];
+    
+    console.log(index);
+
+    if (index === tasks.length) done && done();else tasks[index](function () {
+      return next(++index);
+    });
+  })();
+}
+
+function eachItem(arr, iter, done) {
+  console.log(arr);
+  var tasks = arr.map(function (item) {
+    return function (cb) {
+      return iter(item, cb);
+    };
+  });
+  return eachTask(tasks, done);
+}

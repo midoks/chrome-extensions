@@ -7,20 +7,21 @@
 
 	"browser_action" : {
 		"default_title" : "SvgToImage",
-		"default_icon": "img/logo.png",
-		"default_popup" : "html/popup.html"
+		"default_icon": "img/logo.png"
+		//"default_popup" : "html/popup.html"
 	},
 
 	//icon
 	"icons": {"16": "img/logo.png", "48": "img/logo@48.png"},
 
-
 	//选项页
-	//"options_page": "html/options.html",
+	"options_page": "html/options.html",
 	
 	//后台运行
 	"background": {
-		"page": "html/background.html"
+		"scripts": [ "js/background.js" ],
+		"persistent": false
+		//"page": "html/background.html"
 	},
 
 	"content_scripts": [
@@ -45,6 +46,10 @@
 		"chrome://favicon/",
 		"contextMenus"	//右键菜单
 	],
+	
+	"optional_permissions": [
+    	"<all_urls>"
+  	],
 	//允许的资源
 	"web_accessible_resources": [
 		"js/jquery.min.js",
