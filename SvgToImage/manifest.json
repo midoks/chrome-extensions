@@ -26,7 +26,8 @@
 	"content_scripts": [
 	    {
 	     	"matches": ["http://*/*"],
-	     	"js": ["js/jquery.min.js", "js/content.js"]
+	     	"js": ["js/jquery.min.js", "js/canvg/canvg.min.js", 
+	     			"js/svg2png.js","js/content.js"]
 	    }
  	],
 
