@@ -2,7 +2,9 @@
 
 
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
+	if (changeInfo.status !== 'loading') return;
 
+	
 
 	 var jsFiles = ['js/jquery.min.js'];
 	console.log(tabId, changeInfo, tab);
@@ -11,7 +13,6 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
 	chrome.tabs.executeScript(tabId, {
     	code: 's'
 		}, function(result) {
-			console.log(chrome.runtime.lastError);
 		    if (chrome.runtime.lastError) { // or if (!result)
 		    	console.log(chrome.runtime.lastError);
 		        return;
