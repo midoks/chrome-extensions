@@ -17,7 +17,7 @@ var id = chrome.contextMenus.create({
 		//console.log(info, tab);
 		var v = info.selectionText;
 		if (v == "" || typeof v == "undefined" ) {
-			web_Notification('提示', '没有选中值');
+			web_Notification('notice', 'no selected value');
 		}else{
 			chrome.tabs.sendRequest(tab.id, {v: v }, function(response) {
   				console.log(response);
