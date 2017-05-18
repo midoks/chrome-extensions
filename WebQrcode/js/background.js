@@ -12,7 +12,7 @@ function create_children_contextMenus(arrays){
 //创建右键菜单(父菜单)
 var id = chrome.contextMenus.create({
 	type:"normal",
-	title:'生成二维码',
+	title:'Make QRcode',
 	onclick:function(info, tab){
 		//console.log(info, tab);
 		var v = info.selectionText;
