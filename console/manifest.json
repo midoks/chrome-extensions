@@ -1,0 +1,67 @@
+{
+	"name" : "console",
+	"version" : "1.0",
+	"manifest_version": 2,
+	"description":"www.cachecha.com",
+	"homepage_url": "http://www.cachecha.com",
+
+	"browser_action" : {
+		"default_title" : "console",
+		"default_icon": "img/logo.png",
+		"default_popup" : "html/popup.html"
+	},
+
+
+	// "page_action" : {
+	// 	"default_title" : "快查网",
+	// 	//"default_icon": "img/logo.png",
+	// 	"default_icon": {"19": "img/logo.png", "38": "img/logo.png"},
+	// 	"default_popup" : "html/popup.html"
+	// },
+
+	//icon
+	"icons": {"16": "img/logo.png", "48": "img/logo@48.png", "128": "img/logo@128.png"},
+
+
+	//选项页
+	//"options_page": "html/options.html",
+	
+	//后台运行
+	"background": {
+		"page": "html/background.html"
+	},
+	
+	//"content_security_policy": "script-src 'self' https://rank.ie.sogou.com; object-src 'self'",
+
+
+	"content_scripts": [
+	    {
+	     	"matches": ["http://*/*"],
+	     	"js": ["js/jquery.min.js", "js/jquery.qrcode.min.js","vconsole.min.js", "js/content.js"]
+	    }
+ 	],
+
+	//权限管理
+	"permissions":[
+		"notifications",//消息
+		"management",	//插件管理权限
+		"tabs",    		//视窗
+		"bookmarks",    //书签
+		"cookies",		//cookie
+		"http://*/",
+		"unlimitedStorage",
+		"background",	//后台运行
+		"history",		//历史记录
+		"chrome://favicon/",
+		"contextMenus"	//右键菜单
+	],
+	//允许的资源
+	"web_accessible_resources": [
+		"img/logo.png",
+		"js/jquery.min.js",
+		"js/jquery.qrcode.min.js",
+		"js/popup.js",
+		"vconsole.min.js",
+		"js/content.js"
+	]
+}
