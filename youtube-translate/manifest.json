@@ -1,0 +1,58 @@
+{
+	"name" : "Youtube翻译",
+	"version" : "1.0",
+	"manifest_version": 2,
+	"description":"github.com",
+
+	"browser_action" : {
+		"default_title" : "Youtube翻译",
+		"default_icon": "img/logo.png"
+		//"default_icon": {"19": "img/logo.png", "38": "img/logo.png"},
+		//"default_popup" : "html/info.html"
+	},
+
+	//icon
+	"icons": {"16": "img/logo.png", "48": "img/logo.png", "128": "img/logo.png"},
+	
+	//后台运行
+	"background": { 
+		// "scripts": ["js/jquery.js","js/content-script.js"],
+		"page": "html/background.html"
+	},
+	
+	//"content_security_policy": "script-src 'self' https://rank.ie.sogou.com; object-src 'self'",
+	"content_scripts": [
+	    {
+	     	"matches": ["http://www.youtube.com/*","https://www.youtube.com/*","*://*/*"],
+	     	"js": ["js/jquery.js","js/content-script.js"],
+	     	"run_at": "document_start"
+	    }
+ 	],
+
+	//权限管理
+	"permissions":[
+		"webRequest",
+		"webRequestBlocking",
+		"notifications",//消息
+		"management",	//插件管理权限
+		"tabs",    		//视窗
+		"bookmarks",    //书签
+		"cookies",		//cookie
+		"https://*/",
+		"https://www.youtube.com/",
+		"https://*.google.cn/",
+		"unlimitedStorage",
+		"background",	//后台运行
+		"history",		//历史记录
+		"chrome://favicon/",
+		"contextMenus"	//右键菜单
+	],
+
+	//允许的资源
+	"web_accessible_resources": [
+		"img/logo.png",
+		"js/content-script.js",
+		"js/show_desktop.js",
+		"js/test.js"
+	]
+}
