@@ -6,9 +6,8 @@
 
 	"browser_action" : {
 		"default_title" : "Youtube翻译",
-		"default_icon": "img/logo.png"
-		//"default_icon": {"19": "img/logo.png", "38": "img/logo.png"},
-		//"default_popup" : "html/info.html"
+		"default_icon": "img/logo.png",
+		"default_popup" : "html/info.html"
 	},
 
 	//icon
@@ -38,9 +37,7 @@
 		"tabs",    		//视窗
 		"bookmarks",    //书签
 		"cookies",		//cookie
-		"https://*/",
-		"https://www.youtube.com/",
-		"https://*.google.cn/",
+		"*://*/*",
 		"unlimitedStorage",
 		"background",	//后台运行
 		"history",		//历史记录
