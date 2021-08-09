@@ -16,7 +16,7 @@ function jLoad(word,callback) {
 
 
 function findContent(){
-	console.log($('#contents'));
+	console.log($('#contents .style-scope ytd-item-section-renderer'));
 
 }
 
