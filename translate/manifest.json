@@ -22,7 +22,7 @@
 	//"content_security_policy": "script-src 'self' https://rank.ie.sogou.com; object-src 'self'",
 	"content_scripts": [
 	    {
-	     	"matches": ["*://*/*"],
+	     	"matches": ["<all_urls>"],
 	     	"css": ["js/toast/jquery.toast.min.css"],
 	     	"js": ["js/jquery.js","js/toast/jquery.toast.min.js","js/content-script.js"],
 	     	"run_at": "document_start"
