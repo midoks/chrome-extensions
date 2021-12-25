@@ -1,11 +1,11 @@
 {
-	"name" : "Youtube翻译",
+	"name" : "翻译",
 	"version" : "1.0",
 	"manifest_version": 2,
 	"description":"github.com",
 
 	"browser_action" : {
-		"default_title" : "Youtube翻译",
+		"default_title" : "翻译",
 		"default_icon": "img/logo.png",
 		"default_popup" : "html/info.html"
 	},
@@ -22,8 +22,9 @@
 	//"content_security_policy": "script-src 'self' https://rank.ie.sogou.com; object-src 'self'",
 	"content_scripts": [
 	    {
-	     	"matches": ["http://www.youtube.com/*","https://www.youtube.com/*","*://*/*"],
-	     	"js": ["js/jquery.js","js/content-script.js"],
+	     	"matches": ["*://*/*"],
+	     	"css": ["js/toast/jquery.toast.min.css"],
+	     	"js": ["js/jquery.js","js/toast/jquery.toast.min.js","js/content-script.js"],
 	     	"run_at": "document_start"
 	    }
  	],
@@ -50,6 +51,8 @@
 		"img/logo.png",
 		"js/content-script.js",
 		"js/show_desktop.js",
+		"js/toast/jquery.toast.min.js",
+		"js/toast/jquery.toast.min.css",
 		"js/test.js"
 	]
 }

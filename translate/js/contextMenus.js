@@ -21,7 +21,7 @@ function create_children_contextMenus(arrays){
 //创建右键菜单(父菜单)
 var id = chrome.contextMenus.create({
 	type:"normal",
-	title:'Youtube翻译',
+	title:'翻译',
 	onclick:function(info, tab){
 		console.log(info,tab);
 	},
@@ -29,8 +29,9 @@ var id = chrome.contextMenus.create({
 	enabled:true,
 	contexts:["all"]
 }, function(){
-	if(chrome.extension.lastError)
+	if(chrome.extension.lastError){
 		console.log(chrome.extension.lastError);
+	}
 });
 
 //子菜单
@@ -93,7 +94,7 @@ create_children_contextMenus(
 	enabled:true,
 	contexts:["all"]
 },
-/*{
+{
 	type:"normal",
 	title:'菜单测试',
 	onclick:function(info, tab){
@@ -103,6 +104,6 @@ create_children_contextMenus(
 	checked:true,
 	enabled:true,
 	contexts:["all"]
-}*/
+}
 ]);
 /////////////////////////////////////////////////////////
