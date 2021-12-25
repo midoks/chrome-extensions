@@ -6,9 +6,9 @@ function toast(msg, afterHidden, beforeShow){
 	    position: 'mid-center',
 	    showHideTransition: 'fade',
 	    stack: false,
-	    hideAfter: 3000,
-	    allowToastClose: false,
-	    loader: false,
+	    hideAfter: 5000,
+	    allowToastClose: true,
+	    loader: true,
 	    beforeShow: function () {
 	    	if (typeof beforeShow == 'function') {
 	    		beforeShow();
